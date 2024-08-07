@@ -55,7 +55,6 @@ We have used Python 3 to its following packages:
     <tr>
       <th>Gender</th>
       <td>Breakdown of products by gender such as men’s, women’s, and unisex’s products, enabling targeted market analysis</td>
-      <td>-</td>
       <td>Men or <br> Female or <br> Unisex</td>
       <td>Categorical</td>
     </tr>

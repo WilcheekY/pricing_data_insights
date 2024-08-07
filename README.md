@@ -2,7 +2,7 @@
 
  
 ## Overview
-- Google Cloud Reviews on Zalora: ([Article](https://medium.com/towards-data-science/what-is-data-quality-f2c0274a6404))<br>
+- Google Cloud Reviews on Zalora: ([Article](https://cloud.google.com/customers/zalora-gcp/))<br>
 <p>Myntra is a major e-commerce company. Zalora is also a major SEA e-commerce company.<br>Zalora has increased sales and revenues by personalizing customers’ experiences on its websites and mobile applications.</p>
 
 ## Table of Content
@@ -33,7 +33,6 @@ We have used Python 3 to its following packages:
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
       <th>Attribute</th>
       <th>Description</th>
       <th>Notes</th>
@@ -78,8 +77,8 @@ We have used Python 3 to its following packages:
 
 
 # Notable EDA Insights
-!![png](Myntra_DS1.png)
-!![png](Myntra_DS2.png)
+![png](Myntra_DS1.png)
+![png](Myntra_DS2.png)
 
 ## Key Findings:
  - Analyzed data from 2021 to 2023.

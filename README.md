@@ -1,7 +1,4 @@
-## Ecommerce Pricing Trends Analysis
-
- 
-## Overview
+# Ecommerce Pricing Trends Analysis :: Overview
 - Google Cloud Reviews on Zalora: ([Article](https://cloud.google.com/customers/zalora-gcp/))<br>
 <p>Myntra is a major e-commerce company. Zalora is also a major SEA e-commerce company.<br>Zalora has increased sales and revenues by personalizing customers’ experiences on its websites and mobile applications.</p>
 
@@ -74,23 +71,31 @@ We have used Python 3 to its following packages:
 </table>
 </div>
 
+### Corrects pricing in produce bestseller spreadsheet.
+```python
+csv_price = pd.read_csv('myntra_products_catalog.csv', encoding='unicode_escape')
+csv_price = csv_price.rename(columns={'Price':'INR_Price'})
+csv_price['MYR_Price'] = [round (x*0.0528) for x in csv_price['INR_Price']]
+csv_price.insert(5, 'MYR_Price', csv_price.pop('MYR_Price')) 
+bestseller_csv_price = csv_price.to_csv('Bestseller_.csv', index=False)
+```
 
-# Notable EDA Insights
+## Notable EDA Insights
 ![png](Myntra_DS1.png)
 ![png](Myntra_DS2.png)
 
-## Key Findings:
+### Key Findings:
  - Analyzed data from 2021 to 2023.
  - 3500 total orders.
  - Totalled sales of $1.88 million.
  - Myntra sells goods under 72 brands.
  - Overall, users give the app a 4 out of 5.
  
- ## Brand Performance:
+ ### Brand Performance:
  - The brand with the greatest sales was H&M.
  - The brand with the lowest sales volume was La-Zoire.
  
- ## Month-wise Insights:
+ ### Month-wise Insights:
  - May 2021 and June 2022 stood out as peak sales months.
  - Noted a shift in category sales: men led in 2021, women in 2022.
 

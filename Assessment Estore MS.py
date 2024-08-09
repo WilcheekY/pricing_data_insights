@@ -4,17 +4,22 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-priceCatcher = pd.read_csv('./Bestseller_.csv')
+#! python3
+# README.md - Corrects pricing in produce bestseller spreadsheet.
+csv_price = pd.read_csv('myntra_products_catalog.csv', encoding='unicode_escape')
+csv_price = csv_price.rename(columns={'Price':'INR_Price'})
+csv_price['MYR_Price'] = [round (x*0.0528) for x in csv_price['INR_Price']]
+csv_price.insert(5, 'MYR_Price', csv_price.pop('MYR_Price')) 
+
+bestseller_csv_price = csv_price.to_excel('Bestseller_.xlsx', index=False)
+priceCatcher = pd.read_excel('./Bestseller_.xlsx')
 priceCatcher.Price.describe()
 
 # Remove price ranges for outlier
-priceCatcher = priceCatcher.rename(columns={'Price':'INR_price'})
-print('Price:',sorted(priceCatcher.INR_price.unique()))
 priceCatcher.loc[(priceCatcher.INR_price < 500) & (priceCatcher.INR_price > 200)]
-priceCatcher = priceCatcher.rename(columns={'INR_Price':'MYR_price'})
-priceCatcher['Price'] = priceCatcher.MYR_Price['Price'] * 0.0535
+print('Price:',sorted(priceCatcher.INR_price.unique()))
+priceCatcher.loc[(priceCatcher.MYR_price < 50) & (priceCatcher.INR_price > 20)]
 print('Price:',sorted(priceCatcher.MYR_price.unique()))
-priceCatcher.loc[(priceCatcher.MYR_price < 10) & (priceCatcher.INR_price > 5)]
 
 # Define price ranges for grouping
 price_bins = [0, 500, 1000, 1500, 2000, 3000, 5000, 10000, 20000, 30000, 50000, float('inf')]
